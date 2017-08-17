@@ -27,8 +27,8 @@ zipfile.extractall()
 zipfile.close()
 
 # Read data into an array of strings
-with open('./ml-100k/u.data') as f:
-    all_lines = f.readlines()
+with open('./ml-100k/u.data') as lines:
+    all_lines = lines.readlines()
 
 # Data preparation with separation '\t' to be used in Surprise
 reader = Reader(line_format='user item rating timestamp', sep='\t')
@@ -56,7 +56,7 @@ trainset = data.build_full_trainset()
 algo.train(trainset)
 
 # Predict a certain item
-userid = str(196)
-itemid = str(302)
-actual_rating = 4
+userid = str(22)
+itemid = str(377)
+actual_rating = 1
 print(algo.predict(userid, itemid, actual_rating))
